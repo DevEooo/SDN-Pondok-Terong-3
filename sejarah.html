@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sejarah | SDN Ponter 3</title>
+    <!-- AOS Untuk Animasi pada Website -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    />
+    <!-- Google Font - Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 70px 0 0;
+      }
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        position: relative;
+        margin: 0 100px 0 0;
+      }
+
+      nav ul li {
+        position: relative;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 450;
+        cursor: pointer;
+      }
+
+      .btnprofil {
+        color: #ca0000;
+      }
+
+      .dropdown {
+        display: none;
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        top: 100%;
+        left: 0;
+        width: 150px;
+        text-align: center;
+      }
+
+      .dropdown a {
+        display: block;
+        padding: 10px;
+        color: #000;
+        text-decoration: none;
+      }
+
+      .dropdown a:hover {
+        background-color: #f4f4f4;
+        color: #ca0000;
+      }
+
+      .nav-arrow {
+        margin: 0 0 0 1px;
+        font-size: 12px;
+        color: #000;
+      }
+
+      .login-btn {
+        background-color: #ca0000;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.4s;
+        border: 3px solid transparent;
+      }
+
+      .login-btn:hover {
+        color: #ca0000;
+        background: transparent;
+        border: 3px solid #ca0000;
+        font-weight: bold;
+      }
+      .nav-arrow {
+        margin: 0 0 0 1px;
+        font-size: 12px;
+        color: #000;
+      }
+
+      .login-btn {
+        background-color: #ca0000;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.4s;
+        border: 3px solid transparent;
+      }
+
+      .login-btn:hover {
+        color: #ca0000;
+        background: transparent;
+        border: 3px solid #ca0000;
+        font-weight: bold;
+      }
+
+      .sejarah-img {
+        position: relative;
+        height: 50dvh;
+        background-image: url("History Background.jpg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .sejarah-img::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: inherit;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        z-index: 0;
+        transition: filter 0.5s ease;
+      }
+
+      .sejarah-img:hover::before {
+        transition: filter 0.5s ease;
+        filter: none;
+      }
+
+      .sejarah-txt {
+        position: relative;
+        z-index: 1;
+      }
+
+      .sejarah-txt h2 {
+        color: white;
+        letter-spacing: 1px;
+        font-size: 46px;
+        margin: 0 0 60px;
+      }
+      .section-sejarah {
+        background-color: #f9fbff;
+        padding: 0 20px 60px;
+      }
+
+      .card-sejarah {
+        max-width: 1000px;
+        margin: -60px auto 0;
+        background-color: white;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+        text-align: left;
+        position: relative;
+        top: -50px;
+      }
+
+      .card-sejarah h3 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .card-sejarah h4 {
+        font-size: 30px;
+        margin-top: 30px;
+        color: #333;
+        font-weight: 500;
+      }
+
+      .card-sejarah p {
+        font-size: 16.5px;
+        color: #444;
+        line-height: 1.7;
+      }
+
+      footer {
+        height: 55dvh;
+        background-color: #1a1a1a;
+        background-color: #1a1a1a;
+        color: #fff;
+        text-align: left;
+      }
+
+      .backtop-btn {
+        background-color: white;
+        color: #1a1a1a;
+        padding: 10px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: 0.4s;
+        border: 3px solid transparent;
+        font-weight: 600;
+        font-size: 15px;
+        margin-top: 15px;
+      }
+      .backtop-btn:hover {
+        color: white;
+        background: transparent;
+        border: 3px solid white;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .left-txt {
+        flex: 1;
+        max-width: 450px;
+        padding: 30px 0 30px 80px;
+      }
+
+      .right-txt {
+        flex: 1;
+        max-width: 500px;
+        padding: 30px;
+      }
+
+      .watermark {
+        text-align: center;
+        margin-top: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <img src="Logo SD.png" height="60" alt="Logo SDN Pondok Terong 3" />
+        <h1>SDN PONDOK TERONG 3</h1>
+      </div>
+      <ul>
+        <li><a href="index.html" class="btnhome">Beranda</a></li>
+        <li class="dropdown-container">
+          <a id="profil-btn" class="btnprofil"
+            >Profil <span class="nav-arrow">▼</span></a
+          >
+          <div class="dropdown" id="profil-dropdown">
+            <a href="sejarah.html" style="color: #ca0000;">Sejarah</a>
+            <a href="visi-misi.html">Visi dan Misi</a>
+          </div>
+        </li>
+        <li class="dropdown-container">
+          <a id="informasi-btn">Informasi <span class="nav-arrow">▼</span></a>
+          <div class="dropdown" id="informasi-dropdown">
+            <a href="sarana-prasarana.html">Sarana dan Prasarana</a>
+            <a href="galeri.html">Galeri Sekolah</a>
+          </div>
+        </li>
+        <li><a href="kontakponter3.html">Contact</a></li>
+        <li><a href="loginponter3.php" class="login-btn">Log In</a></li>
+      </ul>
+    </nav>
+
+    <section class="sejarah-img">
+      <div class="sejarah-txt">
+        <h2 data-aos="fade-right" style="font-family: 'Merriweather', serif">
+          Sejarah Sekolah
+        </h2>
+      </div>
+    </section>
+
+    <section class="section-sejarah">
+      <div
+        class="card-sejarah"
+        data-aos="zoom-in"
+        data-aos-delay="400"
+        id="content-card"
+      >
+        <h3 data-aos="fade-right" data-aos-delay="800">
+          Sejarah SDN Pondok Terong 3
+        </h3>
+
+        <p data-aos="fade-right" data-aos-delay="1100">
+          SDN Pondok Terong 3 merupakan salah satu sekolah dasar negeri yang
+          berada di wilayah Kelurahan Pondok Terong, Kecamatan Cipayung, Kota
+          Depok, Provinsi Jawa Barat. Sekolah ini didirikan pada 1 Januari 1982
+          sebagai bagian dari program pemerintah dalam menyediakan layanan
+          pendidikan dasar yang merata dan berkualitas untuk seluruh lapisan
+          masyarakat.
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          Awal mula berdirinya SDN Pondok Terong 3 dipicu oleh kebutuhan
+          masyarakat Pondok Terong akan lembaga pendidikan formal yang dapat
+          menampung jumlah anak usia sekolah yang semakin meningkat akibat
+          pertumbuhan penduduk yang pesat di kawasan tersebut. Dengan semangat
+          gotong royong antara pemerintah, tokoh masyarakat, dan warga sekitar,
+          berdirilah sebuah sekolah dasar negeri yang sederhana namun penuh
+          harapan.
+        </p>
+
+        <h4 data-aos="fade-right" data-aos-delay="1300">Tujuan Sekolah</h4>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          1. Menyelenggarakan pendidikan dasar yang berkualitas dan merata untuk
+          seluruh peserta didik tanpa membedakan latar belakang sosial, ekonomi,
+          maupun budaya
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          2. Mengembangkan potensi peserta didik secara optimal melalui kegiatan
+          belajar yang aktif, kreatif, inovatif, dan menyenangkan.
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          3. Menanamkan nilai-nilai karakter luhur seperti disiplin, tanggung
+          jawab, kejujuran, kerja sama, dan kepedulian terhadap lingkungan.
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          4. Meningkatkan kemampuan literasi dan numerasi siswa sebagai bekal
+          dalam menempuh jenjang pendidikan selanjutnya. Menciptakan lingkungan
+          sekolah yang aman, bersih, dan nyaman bagi seluruh warga sekolah.
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          5. Meningkatkan partisipasi orang tua dan masyarakat dalam mendukung
+          kegiatan pembelajaran dan pengembangan sekolah.
+        </p>
+
+        <p data-aos="fade-right" data-aos-delay="1300">
+          6. Mempersiapkan siswa menjadi warga negara yang berakhlak mulia,
+          cinta tanah air, dan mampu beradaptasi dengan perkembangan zaman.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div data-aos="zoom-in" data-aos-delay="800">
+        <div class="footer-content">
+          <div class="left-txt">
+            <h3 style="font-size: 26px">SDN PONDOK TERONG 3</h3>
+            <p>
+              SDN Pondok Terong 3 adalah Sekolah Dasar Negeri yang berlokasi di
+              Kota Depok, Jawa Barat. Sekolah ini berkomitmen dalam memberikan
+              pendidikan dasar berkualitas kepada generasi muda.
+            </p>
+
+            <button
+              class="backtop-btn"
+              onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+            >
+              Kembali ke Atas
+            </button>
+          </div>
+
+          <div class="right-txt">
+            <h4 style="font-size: 24px">Kontak Kami</h4>
+            <p>
+              Jl. Raya Pondok Terong No.3, Cipayung, Depok<br />Jawa Barat,
+              16459
+            </p>
+            <p>
+              <i class="bi bi-envelope" style="margin-right: 5px"></i> Email:
+              -<br /><i class="bi bi-telephone" style="margin-right: 5px"></i>
+              Telepon: -
+            </p>
+            <div style="margin-top: 10px">
+              <a
+                href="#"
+                style="color: white; font-size: 20px; margin-right: 15px"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a
+                href="#"
+                style="color: white; font-size: 20px; margin-right: 15px"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a
+                href="#"
+                style="
+                  color: white;
+                  font-size: 22px;
+                  margin-right: 15px;
+                  padding: 10px 0 0;
+                "
+                ><i class="bi bi-youtube"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <hr style="width: 90%; color: #a1a1a1; margin-top: 30px" />
+
+        <div class="watermark">
+          &copy; 2025 SDN Pondok Terong 3. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+
+  <!-- Script untuk setup animasi websitenya -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script>
+    AOS.init({
+      once: true,
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const profilBtn = document.getElementById("profil-btn");
+      const profilDropdown = document.getElementById("profil-dropdown");
+      const informasiBtn = document.getElementById("informasi-btn");
+      const informasiDropdown = document.getElementById("informasi-dropdown");
+
+      profilBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        profilDropdown.style.display =
+          profilDropdown.style.display === "block" ? "none" : "block";
+      });
+
+      informasiBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        informasiDropdown.style.display =
+          informasiDropdown.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (
+          !profilBtn.contains(event.target) &&
+          !profilDropdown.contains(event.target)
+        ) {
+          profilDropdown.style.display = "none";
+        }
+        if (
+          !informasiBtn.contains(event.target) &&
+          !informasiDropdown.contains(event.target)
+        ) {
+          informasiDropdown.style.display = "none";
+        }
+      });
+    });
+  </script>
+</html>
